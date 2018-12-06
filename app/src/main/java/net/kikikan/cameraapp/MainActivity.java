@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.TextureView;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     public SeekBar sb;
-    public EditText delayET;
+    public TextView delayTW;
     TextureView cameraView;
 
     private final int CAMERA_REQUEST_CODE = 100;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
         setContentView(R.layout.activity_main);
         sb = findViewById(R.id.delaySeekBar);
-        delayET = findViewById(R.id.delayEditText);
+        delayTW = findViewById(R.id.delaytextView);
         cameraView = findViewById(R.id.cameraView);
 
         sb.setOnSeekBarChangeListener(new SeekBarManager(this));

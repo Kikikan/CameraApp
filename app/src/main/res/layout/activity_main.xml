@@ -14,20 +14,25 @@
         android:layout_marginLeft="16dp"
         android:max="600"
         android:progress="0"
+        android:background="@drawable/gradient"
         app:layout_constraintBottom_toTopOf="@+id/takeButton"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/delayEditText"
+    <TextView
+        android:id="@+id/delaytextView"
         android:layout_width="87dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/gradient"
+        android:gravity="center"
         android:ems="10"
         android:inputType="number"
+        android:padding="3dp"
         android:text="0"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/takeButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/delaySeekBar" />
 
     <Button

@@ -11,7 +11,7 @@ public class SeekBarManager implements SeekBar.OnSeekBarChangeListener{
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
         if (b)
-            mainActivity.delayET.setText(String.valueOf(i));
+            mainActivity.delayTW.setText(String.valueOf(i));
     }
 
     @Override
@@ -27,7 +27,7 @@ public class SeekBarManager implements SeekBar.OnSeekBarChangeListener{
     public SeekBarManager(MainActivity ac) {
         mainActivity = ac;
 
-        mainActivity.delayET.addTextChangedListener(new TextWatcher() {
+        mainActivity.delayTW.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -40,8 +40,8 @@ public class SeekBarManager implements SeekBar.OnSeekBarChangeListener{
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (!mainActivity.delayET.getText().toString().equals(""))
-                    mainActivity.sb.setProgress(Integer.parseInt(mainActivity.delayET.getText().toString()));
+                if (!mainActivity.delayTW.getText().toString().equals(""))
+                    mainActivity.sb.setProgress(Integer.parseInt(mainActivity.delayTW.getText().toString()));
             }
         });
     }
