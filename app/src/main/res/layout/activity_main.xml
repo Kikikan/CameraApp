@@ -8,41 +8,44 @@
 
     <SeekBar
         android:id="@+id/delaySeekBar"
-        android:layout_width="182dp"
-        android:layout_height="34dp"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/gradient"
         android:max="600"
         android:progress="0"
-        android:background="@drawable/gradient"
         app:layout_constraintBottom_toTopOf="@+id/takeButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/delaytextView"
-        android:layout_width="87dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/gradient"
-        android:gravity="center"
         android:ems="10"
+        android:gravity="center"
         android:inputType="number"
         android:padding="3dp"
         android:text="0"
-        android:textSize="20sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/takeButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toEndOf="@+id/delaySeekBar" />
 
     <Button
         android:id="@+id/takeButton"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/gradient"
         android:text="Csíz!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextureView
@@ -54,9 +57,9 @@
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.145" />
 
 </android.support.constraint.ConstraintLayout>
