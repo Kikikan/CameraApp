@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/gradient"
-        android:max="600"
+        android:max="60"
         android:progress="0"
         app:layout_constraintBottom_toTopOf="@+id/takeButton"
         app:layout_constraintStart_toStartOf="parent" />
