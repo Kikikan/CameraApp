@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
+                if (imageBitmap == null)
+                    return;
                 Matrix matrix = new Matrix();
                 matrix.postRotate(90);
                 Bitmap scaledBitmap = Bitmap.createScaledBitmap(imageBitmap, imageBitmap.getWidth(), imageBitmap.getHeight(), true);
