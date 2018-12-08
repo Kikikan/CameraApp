@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     public SeekBar sb;
@@ -41,8 +44,16 @@ public class MainActivity extends AppCompatActivity {
         takeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
+
+                if (delayTW.getText().toString() != "0")
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE), CAMERA_REQUEST_CODE);
+                        }
+                    }, Integer.parseInt(delayTW.getText().toString()) * 1000);
+                else
+                    startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE), CAMERA_REQUEST_CODE);
             }
         });
     }
