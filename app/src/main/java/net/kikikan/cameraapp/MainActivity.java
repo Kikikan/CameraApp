@@ -62,8 +62,11 @@ public class MainActivity extends AppCompatActivity {
     {
         if(requestCode == CAMERA_REQUEST_CODE)
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            cameraView.setImageBitmap(photo);
+            if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                cameraView.setImageBitmap(imageBitmap);
+            }
         }
     }
 
