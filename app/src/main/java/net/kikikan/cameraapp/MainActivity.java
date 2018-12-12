@@ -3,17 +3,22 @@ package net.kikikan.cameraapp;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -64,19 +69,31 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
                 if (imageBitmap == null)
                     return;
-                Matrix matrix = new Matrix();
-                matrix.postRotate(90);
-                Bitmap scaledBitmap = Bitmap.createScaledBitmap(imageBitmap, imageBitmap.getWidth(), imageBitmap.getHeight(), true);
-                Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
-                cameraView.setImageBitmap(rotatedBitmap);
+                cameraView.setImageBitmap(imageBitmap);
+
+                try {
+                    String path = Environment.getExternalStorageDirectory().toString();
+                    OutputStream fOut = null;
+                    File file = new File(path, "test.png");
+                    fOut = new FileOutputStream(file);
+
+                    imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+                    fOut.flush();
+                    fOut.close();
+
+                    MediaStore.Images.Media.insertImage(getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+                }
+                
+                catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
-        }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        return true;
     }
 }
